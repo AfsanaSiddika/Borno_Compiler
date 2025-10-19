@@ -22,11 +22,12 @@ It performs **Lexical Analysis**, **Parsing (AST)**, **Semantic Checking**, **3-
 ## 🧠 Project Structure
 Borno_Compiler/
 │
-├── lexer.py # Token definitions (PLY)
-├── parser_bn.py # Bangla-Python grammar parser (PLY)
-├── semantic.py # Symbol table + type checking
-├── ir_generator.py # 3-Address Code generation
-├── optimizer.py # Constant folding optimization
-├── machine_code.py # Machine code emitter
-├── main.py # Compiler entry point (driver)
-└── README.md # You are here 😊
+├── 📜 lexer.py              → Token definitions using PLY (Lexical Analyzer)
+├── 🧩 parser_bn.py           → Grammar rules for Bangla-Python (Parser via Yacc)
+├── 🧠 semantic.py            → Symbol table management & semantic checking
+├── ⚙️ ir_generator.py        → 3-Address Intermediate Representation (IR) generator
+├── 🚀 optimizer.py           → Constant folding & simple optimizations
+├── 🏗️ machine_code.py        → Pseudo machine code / target code generator
+├── 🧭 main.py                → Compiler driver — runs the full pipeline
+└── 📘 README.md              → You are here 😊
+
