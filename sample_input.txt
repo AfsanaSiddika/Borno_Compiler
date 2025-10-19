@@ -1,0 +1,27 @@
+# Full test
+x = 10;
+y = 5.5;
+msg = "Computation Started!";
+printkoriyaden(msg);
+
+z = x + y;
+printkoriyaden("Sum is:");
+printkoriyaden(z);
+
+jodi (z > 12) {
+    printkoriyaden("z is greater than 12");
+} othoba {
+    printkoriyaden("z is less or equal to 12");
+}
+
+a = z * 2;
+printkoriyaden("Double value:");
+printkoriyaden(a);
+
+jodi (a == 31) {
+    printkoriyaden("a equals 31");
+} othoba {
+    printkoriyaden("a not equals 31");
+}
+
+ferotpattiaden(a);

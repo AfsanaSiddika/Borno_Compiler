@@ -1,0 +1,1174 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    COMMA
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> stmt_list
+Rule 2     stmt_list -> stmt_list stmt
+Rule 3     stmt_list -> stmt
+Rule 4     stmt -> ID ASSIGN expr SEMICOLON
+Rule 5     stmt -> PRINT_BN LPAREN expr RPAREN SEMICOLON
+Rule 6     stmt -> RETURN_BN LPAREN expr RPAREN SEMICOLON
+Rule 7     stmt -> ID ASSIGN INPUT_BN LPAREN STRING RPAREN SEMICOLON
+Rule 8     stmt -> IF_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE_BN LBRACE stmt_list RBRACE
+Rule 9     stmt -> WHILE_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE
+Rule 10    expr -> expr PLUS expr
+Rule 11    expr -> expr MINUS expr
+Rule 12    expr -> expr MULT expr
+Rule 13    expr -> expr DIV expr
+Rule 14    expr -> expr LT expr
+Rule 15    expr -> expr GT expr
+Rule 16    expr -> expr EQ expr
+Rule 17    expr -> LPAREN expr RPAREN
+Rule 18    expr -> INT
+Rule 19    expr -> FLOAT
+Rule 20    expr -> STRING
+Rule 21    expr -> ID
+
+Terminals, with rules where they appear
+
+ASSIGN               : 4 7
+COMMA                : 
+DIV                  : 13
+ELSE_BN              : 8
+EQ                   : 16
+FLOAT                : 19
+GT                   : 15
+ID                   : 4 7 21
+IF_BN                : 8
+INPUT_BN             : 7
+INT                  : 18
+LBRACE               : 8 8 9
+LPAREN               : 5 6 7 8 9 17
+LT                   : 14
+MINUS                : 11
+MULT                 : 12
+PLUS                 : 10
+PRINT_BN             : 5
+RBRACE               : 8 8 9
+RETURN_BN            : 6
+RPAREN               : 5 6 7 8 9 17
+SEMICOLON            : 4 5 6 7
+STRING               : 7 20
+WHILE_BN             : 9
+error                : 
+
+Nonterminals, with rules where they appear
+
+expr                 : 4 5 6 8 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17
+program              : 0
+stmt                 : 2 3
+stmt_list            : 1 2 8 8 9
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . stmt_list
+    (2) stmt_list -> . stmt_list stmt
+    (3) stmt_list -> . stmt
+    (4) stmt -> . ID ASSIGN expr SEMICOLON
+    (5) stmt -> . PRINT_BN LPAREN expr RPAREN SEMICOLON
+    (6) stmt -> . RETURN_BN LPAREN expr RPAREN SEMICOLON
+    (7) stmt -> . ID ASSIGN INPUT_BN LPAREN STRING RPAREN SEMICOLON
+    (8) stmt -> . IF_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE_BN LBRACE stmt_list RBRACE
+    (9) stmt -> . WHILE_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE
+
+    ID              shift and go to state 4
+    PRINT_BN        shift and go to state 5
+    RETURN_BN       shift and go to state 6
+    IF_BN           shift and go to state 7
+    WHILE_BN        shift and go to state 8
+
+    program                        shift and go to state 1
+    stmt_list                      shift and go to state 2
+    stmt                           shift and go to state 3
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> stmt_list .
+    (2) stmt_list -> stmt_list . stmt
+    (4) stmt -> . ID ASSIGN expr SEMICOLON
+    (5) stmt -> . PRINT_BN LPAREN expr RPAREN SEMICOLON
+    (6) stmt -> . RETURN_BN LPAREN expr RPAREN SEMICOLON
+    (7) stmt -> . ID ASSIGN INPUT_BN LPAREN STRING RPAREN SEMICOLON
+    (8) stmt -> . IF_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE_BN LBRACE stmt_list RBRACE
+    (9) stmt -> . WHILE_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE
+
+    $end            reduce using rule 1 (program -> stmt_list .)
+    ID              shift and go to state 4
+    PRINT_BN        shift and go to state 5
+    RETURN_BN       shift and go to state 6
+    IF_BN           shift and go to state 7
+    WHILE_BN        shift and go to state 8
+
+    stmt                           shift and go to state 9
+
+state 3
+
+    (3) stmt_list -> stmt .
+
+    ID              reduce using rule 3 (stmt_list -> stmt .)
+    PRINT_BN        reduce using rule 3 (stmt_list -> stmt .)
+    RETURN_BN       reduce using rule 3 (stmt_list -> stmt .)
+    IF_BN           reduce using rule 3 (stmt_list -> stmt .)
+    WHILE_BN        reduce using rule 3 (stmt_list -> stmt .)
+    $end            reduce using rule 3 (stmt_list -> stmt .)
+    RBRACE          reduce using rule 3 (stmt_list -> stmt .)
+
+
+state 4
+
+    (4) stmt -> ID . ASSIGN expr SEMICOLON
+    (7) stmt -> ID . ASSIGN INPUT_BN LPAREN STRING RPAREN SEMICOLON
+
+    ASSIGN          shift and go to state 10
+
+
+state 5
+
+    (5) stmt -> PRINT_BN . LPAREN expr RPAREN SEMICOLON
+
+    LPAREN          shift and go to state 11
+
+
+state 6
+
+    (6) stmt -> RETURN_BN . LPAREN expr RPAREN SEMICOLON
+
+    LPAREN          shift and go to state 12
+
+
+state 7
+
+    (8) stmt -> IF_BN . LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE_BN LBRACE stmt_list RBRACE
+
+    LPAREN          shift and go to state 13
+
+
+state 8
+
+    (9) stmt -> WHILE_BN . LPAREN expr RPAREN LBRACE stmt_list RBRACE
+
+    LPAREN          shift and go to state 14
+
+
+state 9
+
+    (2) stmt_list -> stmt_list stmt .
+
+    ID              reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    PRINT_BN        reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    RETURN_BN       reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    IF_BN           reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    WHILE_BN        reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    $end            reduce using rule 2 (stmt_list -> stmt_list stmt .)
+    RBRACE          reduce using rule 2 (stmt_list -> stmt_list stmt .)
+
+
+state 10
+
+    (4) stmt -> ID ASSIGN . expr SEMICOLON
+    (7) stmt -> ID ASSIGN . INPUT_BN LPAREN STRING RPAREN SEMICOLON
+    (10) expr -> . expr PLUS expr
+    (11) expr -> . expr MINUS expr
+    (12) expr -> . expr MULT expr
+    (13) expr -> . expr DIV expr
+    (14) expr -> . expr LT expr
+    (15) expr -> . expr GT expr
+    (16) expr -> . expr EQ expr
+    (17) expr -> . LPAREN expr RPAREN
+    (18) expr -> . INT
+    (19) expr -> . FLOAT
+    (20) expr -> . STRING
+    (21) expr -> . ID
+
+    INPUT_BN        shift and go to state 17
+    LPAREN          shift and go to state 18
+    INT             shift and go to state 20
+    FLOAT           shift and go to state 21
+    STRING          shift and go to state 19
+    ID              shift and go to state 15
+
+    expr                           shift and go to state 16
+
+state 11
+
+    (5) stmt -> PRINT_BN LPAREN . expr RPAREN SEMICOLON
+    (10) expr -> . expr PLUS expr
+    (11) expr -> . expr MINUS expr
+    (12) expr -> . expr MULT expr
+    (13) expr -> . expr DIV expr
+    (14) expr -> . expr LT expr
+    (15) expr -> . expr GT expr
+    (16) expr -> . expr EQ expr
+    (17) expr -> . LPAREN expr RPAREN
+    (18) expr -> . INT
+    (19) expr -> . FLOAT
+    (20) expr -> . STRING
+    (21) expr -> . ID
+
+    LPAREN          shift and go to state 18
+    INT             shift and go to state 20
+    FLOAT           shift and go to state 21
+    STRING          shift and go to state 19
+    ID              shift and go to state 15
+
+    expr                           shift and go to state 22
+
+state 12
+
+    (6) stmt -> RETURN_BN LPAREN . expr RPAREN SEMICOLON
+    (10) expr -> . expr PLUS expr
+    (11) expr -> . expr MINUS expr
+    (12) expr -> . expr MULT expr
+    (13) expr -> . expr DIV expr
+    (14) expr -> . expr LT expr
+    (15) expr -> . expr GT expr
+    (16) expr -> . expr EQ expr
+    (17) expr -> . LPAREN expr RPAREN
+    (18) expr -> . INT
+    (19) expr -> . FLOAT
+    (20) expr -> . STRING
+    (21) expr -> . ID
+
+    LPAREN          shift and go to state 18
+    INT             shift and go to state 20
+    FLOAT           shift and go to state 21
+    STRING          shift and go to state 19
+    ID              shift and go to state 15
+
+    expr                           shift and go to state 23
+
+state 13
+
+    (8) stmt -> IF_BN LPAREN . expr RPAREN LBRACE stmt_list RBRACE ELSE_BN LBRACE stmt_list RBRACE
+    (10) expr -> . expr PLUS expr
+    (11) expr -> . expr MINUS expr
+    (12) expr -> . expr MULT expr
+    (13) expr -> . expr DIV expr
+    (14) expr -> . expr LT expr
+    (15) expr -> . expr GT expr
+    (16) expr -> . expr EQ expr
+    (17) expr -> . LPAREN expr RPAREN
+    (18) expr -> . INT
+    (19) expr -> . FLOAT
+    (20) expr -> . STRING
+    (21) expr -> . ID
+
+    LPAREN          shift and go to state 18
+    INT             shift and go to state 20
+    FLOAT           shift and go to state 21
+    STRING          shift and go to state 19
+    ID              shift and go to state 15
+
+    expr                           shift and go to state 24
+
+state 14
+
+    (9) stmt -> WHILE_BN LPAREN . expr RPAREN LBRACE stmt_list RBRACE
+    (10) expr -> . expr PLUS expr
+    (11) expr -> . expr MINUS expr
+    (12) expr -> . expr MULT expr
+    (13) expr -> . expr DIV expr
+    (14) expr -> . expr LT expr
+    (15) expr -> . expr GT expr
+    (16) expr -> . expr EQ expr
+    (17) expr -> . LPAREN expr RPAREN
+    (18) expr -> . INT
+    (19) expr -> . FLOAT
+    (20) expr -> . STRING
+    (21) expr -> . ID
+
+    LPAREN          shift and go to state 18
+    INT             shift and go to state 20
+    FLOAT           shift and go to state 21
+    STRING          shift and go to state 19
+    ID              shift and go to state 15
+
+    expr                           shift and go to state 25
+
+state 15
+
+    (21) expr -> ID .
+
+    SEMICOLON       reduce using rule 21 (expr -> ID .)
+    PLUS            reduce using rule 21 (expr -> ID .)
+    MINUS           reduce using rule 21 (expr -> ID .)
+    MULT            reduce using rule 21 (expr -> ID .)
+    DIV             reduce using rule 21 (expr -> ID .)
+    LT              reduce using rule 21 (expr -> ID .)
+    GT              reduce using rule 21 (expr -> ID .)
+    EQ              reduce using rule 21 (expr -> ID .)
+    RPAREN          reduce using rule 21 (expr -> ID .)
+
+
+state 16
+
+    (4) stmt -> ID ASSIGN expr . SEMICOLON
+    (10) expr -> expr . PLUS expr
+    (11) expr -> expr . MINUS expr
+    (12) expr -> expr . MULT expr
+    (13) expr -> expr . DIV expr
+    (14) expr -> expr . LT expr
+    (15) expr -> expr . GT expr
+    (16) expr -> expr . EQ expr
+
+    SEMICOLON       shift and go to state 26
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    MULT            shift and go to state 29
+    DIV             shift and go to state 30
+    LT              shift and go to state 31
+    GT              shift and go to state 32
+    EQ              shift and go to state 33
+
+
+state 17
+
+    (7) stmt -> ID ASSIGN INPUT_BN . LPAREN STRING RPAREN SEMICOLON
+
+    LPAREN          shift and go to state 34
+
+
+state 18
+
+    (17) expr -> LPAREN . expr RPAREN
+    (10) expr -> . expr PLUS expr
+    (11) expr -> . expr MINUS expr
+    (12) expr -> . expr MULT expr
+    (13) expr -> . expr DIV expr
+    (14) expr -> . expr LT expr
+    (15) expr -> . expr GT expr
+    (16) expr -> . expr EQ expr
+    (17) expr -> . LPAREN expr RPAREN
+    (18) expr -> . INT
+    (19) expr -> . FLOAT
+    (20) expr -> . STRING
+    (21) expr -> . ID
+
+    LPAREN          shift and go to state 18
+    INT             shift and go to state 20
+    FLOAT           shift and go to state 21
+    STRING          shift and go to state 19
+    ID              shift and go to state 15
+
+    expr                           shift and go to state 35
+
+state 19
+
+    (20) expr -> STRING .
+
+    SEMICOLON       reduce using rule 20 (expr -> STRING .)
+    PLUS            reduce using rule 20 (expr -> STRING .)
+    MINUS           reduce using rule 20 (expr -> STRING .)
+    MULT            reduce using rule 20 (expr -> STRING .)
+    DIV             reduce using rule 20 (expr -> STRING .)
+    LT              reduce using rule 20 (expr -> STRING .)
+    GT              reduce using rule 20 (expr -> STRING .)
+    EQ              reduce using rule 20 (expr -> STRING .)
+    RPAREN          reduce using rule 20 (expr -> STRING .)
+
+
+state 20
+
+    (18) expr -> INT .
+
+    SEMICOLON       reduce using rule 18 (expr -> INT .)
+    PLUS            reduce using rule 18 (expr -> INT .)
+    MINUS           reduce using rule 18 (expr -> INT .)
+    MULT            reduce using rule 18 (expr -> INT .)
+    DIV             reduce using rule 18 (expr -> INT .)
+    LT              reduce using rule 18 (expr -> INT .)
+    GT              reduce using rule 18 (expr -> INT .)
+    EQ              reduce using rule 18 (expr -> INT .)
+    RPAREN          reduce using rule 18 (expr -> INT .)
+
+
+state 21
+
+    (19) expr -> FLOAT .
+
+    SEMICOLON       reduce using rule 19 (expr -> FLOAT .)
+    PLUS            reduce using rule 19 (expr -> FLOAT .)
+    MINUS           reduce using rule 19 (expr -> FLOAT .)
+    MULT            reduce using rule 19 (expr -> FLOAT .)
+    DIV             reduce using rule 19 (expr -> FLOAT .)
+    LT              reduce using rule 19 (expr -> FLOAT .)
+    GT              reduce using rule 19 (expr -> FLOAT .)
+    EQ              reduce using rule 19 (expr -> FLOAT .)
+    RPAREN          reduce using rule 19 (expr -> FLOAT .)
+
+
+state 22
+
+    (5) stmt -> PRINT_BN LPAREN expr . RPAREN SEMICOLON
+    (10) expr -> expr . PLUS expr
+    (11) expr -> expr . MINUS expr
+    (12) expr -> expr . MULT expr
+    (13) expr -> expr . DIV expr
+    (14) expr -> expr . LT expr
+    (15) expr -> expr . GT expr
+    (16) expr -> expr . EQ expr
+
+    RPAREN          shift and go to state 36
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    MULT            shift and go to state 29
+    DIV             shift and go to state 30
+    LT              shift and go to state 31
+    GT              shift and go to state 32
+    EQ              shift and go to state 33
+
+
+state 23
+
+    (6) stmt -> RETURN_BN LPAREN expr . RPAREN SEMICOLON
+    (10) expr -> expr . PLUS expr
+    (11) expr -> expr . MINUS expr
+    (12) expr -> expr . MULT expr
+    (13) expr -> expr . DIV expr
+    (14) expr -> expr . LT expr
+    (15) expr -> expr . GT expr
+    (16) expr -> expr . EQ expr
+
+    RPAREN          shift and go to state 37
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    MULT            shift and go to state 29
+    DIV             shift and go to state 30
+    LT              shift and go to state 31
+    GT              shift and go to state 32
+    EQ              shift and go to state 33
+
+
+state 24
+
+    (8) stmt -> IF_BN LPAREN expr . RPAREN LBRACE stmt_list RBRACE ELSE_BN LBRACE stmt_list RBRACE
+    (10) expr -> expr . PLUS expr
+    (11) expr -> expr . MINUS expr
+    (12) expr -> expr . MULT expr
+    (13) expr -> expr . DIV expr
+    (14) expr -> expr . LT expr
+    (15) expr -> expr . GT expr
+    (16) expr -> expr . EQ expr
+
+    RPAREN          shift and go to state 38
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    MULT            shift and go to state 29
+    DIV             shift and go to state 30
+    LT              shift and go to state 31
+    GT              shift and go to state 32
+    EQ              shift and go to state 33
+
+
+state 25
+
+    (9) stmt -> WHILE_BN LPAREN expr . RPAREN LBRACE stmt_list RBRACE
+    (10) expr -> expr . PLUS expr
+    (11) expr -> expr . MINUS expr
+    (12) expr -> expr . MULT expr
+    (13) expr -> expr . DIV expr
+    (14) expr -> expr . LT expr
+    (15) expr -> expr . GT expr
+    (16) expr -> expr . EQ expr
+
+    RPAREN          shift and go to state 39
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    MULT            shift and go to state 29
+    DIV             shift and go to state 30
+    LT              shift and go to state 31
+    GT              shift and go to state 32
+    EQ              shift and go to state 33
+
+
+state 26
+
+    (4) stmt -> ID ASSIGN expr SEMICOLON .
+
+    ID              reduce using rule 4 (stmt -> ID ASSIGN expr SEMICOLON .)
+    PRINT_BN        reduce using rule 4 (stmt -> ID ASSIGN expr SEMICOLON .)
+    RETURN_BN       reduce using rule 4 (stmt -> ID ASSIGN expr SEMICOLON .)
+    IF_BN           reduce using rule 4 (stmt -> ID ASSIGN expr SEMICOLON .)
+    WHILE_BN        reduce using rule 4 (stmt -> ID ASSIGN expr SEMICOLON .)
+    $end            reduce using rule 4 (stmt -> ID ASSIGN expr SEMICOLON .)
+    RBRACE          reduce using rule 4 (stmt -> ID ASSIGN expr SEMICOLON .)
+
+
+state 27
+
+    (10) expr -> expr PLUS . expr
+    (10) expr -> . expr PLUS expr
+    (11) expr -> . expr MINUS expr
+    (12) expr -> . expr MULT expr
+    (13) expr -> . expr DIV expr
+    (14) expr -> . expr LT expr
+    (15) expr -> . expr GT expr
+    (16) expr -> . expr EQ expr
+    (17) expr -> . LPAREN expr RPAREN
+    (18) expr -> . INT
+    (19) expr -> . FLOAT
+    (20) expr -> . STRING
+    (21) expr -> . ID
+
+    LPAREN          shift and go to state 18
+    INT             shift and go to state 20
+    FLOAT           shift and go to state 21
+    STRING          shift and go to state 19
+    ID              shift and go to state 15
+
+    expr                           shift and go to state 40
+
+state 28
+
+    (11) expr -> expr MINUS . expr
+    (10) expr -> . expr PLUS expr
+    (11) expr -> . expr MINUS expr
+    (12) expr -> . expr MULT expr
+    (13) expr -> . expr DIV expr
+    (14) expr -> . expr LT expr
+    (15) expr -> . expr GT expr
+    (16) expr -> . expr EQ expr
+    (17) expr -> . LPAREN expr RPAREN
+    (18) expr -> . INT
+    (19) expr -> . FLOAT
+    (20) expr -> . STRING
+    (21) expr -> . ID
+
+    LPAREN          shift and go to state 18
+    INT             shift and go to state 20
+    FLOAT           shift and go to state 21
+    STRING          shift and go to state 19
+    ID              shift and go to state 15
+
+    expr                           shift and go to state 41
+
+state 29
+
+    (12) expr -> expr MULT . expr
+    (10) expr -> . expr PLUS expr
+    (11) expr -> . expr MINUS expr
+    (12) expr -> . expr MULT expr
+    (13) expr -> . expr DIV expr
+    (14) expr -> . expr LT expr
+    (15) expr -> . expr GT expr
+    (16) expr -> . expr EQ expr
+    (17) expr -> . LPAREN expr RPAREN
+    (18) expr -> . INT
+    (19) expr -> . FLOAT
+    (20) expr -> . STRING
+    (21) expr -> . ID
+
+    LPAREN          shift and go to state 18
+    INT             shift and go to state 20
+    FLOAT           shift and go to state 21
+    STRING          shift and go to state 19
+    ID              shift and go to state 15
+
+    expr                           shift and go to state 42
+
+state 30
+
+    (13) expr -> expr DIV . expr
+    (10) expr -> . expr PLUS expr
+    (11) expr -> . expr MINUS expr
+    (12) expr -> . expr MULT expr
+    (13) expr -> . expr DIV expr
+    (14) expr -> . expr LT expr
+    (15) expr -> . expr GT expr
+    (16) expr -> . expr EQ expr
+    (17) expr -> . LPAREN expr RPAREN
+    (18) expr -> . INT
+    (19) expr -> . FLOAT
+    (20) expr -> . STRING
+    (21) expr -> . ID
+
+    LPAREN          shift and go to state 18
+    INT             shift and go to state 20
+    FLOAT           shift and go to state 21
+    STRING          shift and go to state 19
+    ID              shift and go to state 15
+
+    expr                           shift and go to state 43
+
+state 31
+
+    (14) expr -> expr LT . expr
+    (10) expr -> . expr PLUS expr
+    (11) expr -> . expr MINUS expr
+    (12) expr -> . expr MULT expr
+    (13) expr -> . expr DIV expr
+    (14) expr -> . expr LT expr
+    (15) expr -> . expr GT expr
+    (16) expr -> . expr EQ expr
+    (17) expr -> . LPAREN expr RPAREN
+    (18) expr -> . INT
+    (19) expr -> . FLOAT
+    (20) expr -> . STRING
+    (21) expr -> . ID
+
+    LPAREN          shift and go to state 18
+    INT             shift and go to state 20
+    FLOAT           shift and go to state 21
+    STRING          shift and go to state 19
+    ID              shift and go to state 15
+
+    expr                           shift and go to state 44
+
+state 32
+
+    (15) expr -> expr GT . expr
+    (10) expr -> . expr PLUS expr
+    (11) expr -> . expr MINUS expr
+    (12) expr -> . expr MULT expr
+    (13) expr -> . expr DIV expr
+    (14) expr -> . expr LT expr
+    (15) expr -> . expr GT expr
+    (16) expr -> . expr EQ expr
+    (17) expr -> . LPAREN expr RPAREN
+    (18) expr -> . INT
+    (19) expr -> . FLOAT
+    (20) expr -> . STRING
+    (21) expr -> . ID
+
+    LPAREN          shift and go to state 18
+    INT             shift and go to state 20
+    FLOAT           shift and go to state 21
+    STRING          shift and go to state 19
+    ID              shift and go to state 15
+
+    expr                           shift and go to state 45
+
+state 33
+
+    (16) expr -> expr EQ . expr
+    (10) expr -> . expr PLUS expr
+    (11) expr -> . expr MINUS expr
+    (12) expr -> . expr MULT expr
+    (13) expr -> . expr DIV expr
+    (14) expr -> . expr LT expr
+    (15) expr -> . expr GT expr
+    (16) expr -> . expr EQ expr
+    (17) expr -> . LPAREN expr RPAREN
+    (18) expr -> . INT
+    (19) expr -> . FLOAT
+    (20) expr -> . STRING
+    (21) expr -> . ID
+
+    LPAREN          shift and go to state 18
+    INT             shift and go to state 20
+    FLOAT           shift and go to state 21
+    STRING          shift and go to state 19
+    ID              shift and go to state 15
+
+    expr                           shift and go to state 46
+
+state 34
+
+    (7) stmt -> ID ASSIGN INPUT_BN LPAREN . STRING RPAREN SEMICOLON
+
+    STRING          shift and go to state 47
+
+
+state 35
+
+    (17) expr -> LPAREN expr . RPAREN
+    (10) expr -> expr . PLUS expr
+    (11) expr -> expr . MINUS expr
+    (12) expr -> expr . MULT expr
+    (13) expr -> expr . DIV expr
+    (14) expr -> expr . LT expr
+    (15) expr -> expr . GT expr
+    (16) expr -> expr . EQ expr
+
+    RPAREN          shift and go to state 48
+    PLUS            shift and go to state 27
+    MINUS           shift and go to state 28
+    MULT            shift and go to state 29
+    DIV             shift and go to state 30
+    LT              shift and go to state 31
+    GT              shift and go to state 32
+    EQ              shift and go to state 33
+
+
+state 36
+
+    (5) stmt -> PRINT_BN LPAREN expr RPAREN . SEMICOLON
+
+    SEMICOLON       shift and go to state 49
+
+
+state 37
+
+    (6) stmt -> RETURN_BN LPAREN expr RPAREN . SEMICOLON
+
+    SEMICOLON       shift and go to state 50
+
+
+state 38
+
+    (8) stmt -> IF_BN LPAREN expr RPAREN . LBRACE stmt_list RBRACE ELSE_BN LBRACE stmt_list RBRACE
+
+    LBRACE          shift and go to state 51
+
+
+state 39
+
+    (9) stmt -> WHILE_BN LPAREN expr RPAREN . LBRACE stmt_list RBRACE
+
+    LBRACE          shift and go to state 52
+
+
+state 40
+
+    (10) expr -> expr PLUS expr .
+    (10) expr -> expr . PLUS expr
+    (11) expr -> expr . MINUS expr
+    (12) expr -> expr . MULT expr
+    (13) expr -> expr . DIV expr
+    (14) expr -> expr . LT expr
+    (15) expr -> expr . GT expr
+    (16) expr -> expr . EQ expr
+
+    SEMICOLON       reduce using rule 10 (expr -> expr PLUS expr .)
+    PLUS            reduce using rule 10 (expr -> expr PLUS expr .)
+    MINUS           reduce using rule 10 (expr -> expr PLUS expr .)
+    RPAREN          reduce using rule 10 (expr -> expr PLUS expr .)
+    MULT            shift and go to state 29
+    DIV             shift and go to state 30
+    LT              shift and go to state 31
+    GT              shift and go to state 32
+    EQ              shift and go to state 33
+
+  ! MULT            [ reduce using rule 10 (expr -> expr PLUS expr .) ]
+  ! DIV             [ reduce using rule 10 (expr -> expr PLUS expr .) ]
+  ! LT              [ reduce using rule 10 (expr -> expr PLUS expr .) ]
+  ! GT              [ reduce using rule 10 (expr -> expr PLUS expr .) ]
+  ! EQ              [ reduce using rule 10 (expr -> expr PLUS expr .) ]
+  ! PLUS            [ shift and go to state 27 ]
+  ! MINUS           [ shift and go to state 28 ]
+
+
+state 41
+
+    (11) expr -> expr MINUS expr .
+    (10) expr -> expr . PLUS expr
+    (11) expr -> expr . MINUS expr
+    (12) expr -> expr . MULT expr
+    (13) expr -> expr . DIV expr
+    (14) expr -> expr . LT expr
+    (15) expr -> expr . GT expr
+    (16) expr -> expr . EQ expr
+
+    SEMICOLON       reduce using rule 11 (expr -> expr MINUS expr .)
+    PLUS            reduce using rule 11 (expr -> expr MINUS expr .)
+    MINUS           reduce using rule 11 (expr -> expr MINUS expr .)
+    RPAREN          reduce using rule 11 (expr -> expr MINUS expr .)
+    MULT            shift and go to state 29
+    DIV             shift and go to state 30
+    LT              shift and go to state 31
+    GT              shift and go to state 32
+    EQ              shift and go to state 33
+
+  ! MULT            [ reduce using rule 11 (expr -> expr MINUS expr .) ]
+  ! DIV             [ reduce using rule 11 (expr -> expr MINUS expr .) ]
+  ! LT              [ reduce using rule 11 (expr -> expr MINUS expr .) ]
+  ! GT              [ reduce using rule 11 (expr -> expr MINUS expr .) ]
+  ! EQ              [ reduce using rule 11 (expr -> expr MINUS expr .) ]
+  ! PLUS            [ shift and go to state 27 ]
+  ! MINUS           [ shift and go to state 28 ]
+
+
+state 42
+
+    (12) expr -> expr MULT expr .
+    (10) expr -> expr . PLUS expr
+    (11) expr -> expr . MINUS expr
+    (12) expr -> expr . MULT expr
+    (13) expr -> expr . DIV expr
+    (14) expr -> expr . LT expr
+    (15) expr -> expr . GT expr
+    (16) expr -> expr . EQ expr
+
+    SEMICOLON       reduce using rule 12 (expr -> expr MULT expr .)
+    PLUS            reduce using rule 12 (expr -> expr MULT expr .)
+    MINUS           reduce using rule 12 (expr -> expr MULT expr .)
+    MULT            reduce using rule 12 (expr -> expr MULT expr .)
+    DIV             reduce using rule 12 (expr -> expr MULT expr .)
+    RPAREN          reduce using rule 12 (expr -> expr MULT expr .)
+    LT              shift and go to state 31
+    GT              shift and go to state 32
+    EQ              shift and go to state 33
+
+  ! LT              [ reduce using rule 12 (expr -> expr MULT expr .) ]
+  ! GT              [ reduce using rule 12 (expr -> expr MULT expr .) ]
+  ! EQ              [ reduce using rule 12 (expr -> expr MULT expr .) ]
+  ! PLUS            [ shift and go to state 27 ]
+  ! MINUS           [ shift and go to state 28 ]
+  ! MULT            [ shift and go to state 29 ]
+  ! DIV             [ shift and go to state 30 ]
+
+
+state 43
+
+    (13) expr -> expr DIV expr .
+    (10) expr -> expr . PLUS expr
+    (11) expr -> expr . MINUS expr
+    (12) expr -> expr . MULT expr
+    (13) expr -> expr . DIV expr
+    (14) expr -> expr . LT expr
+    (15) expr -> expr . GT expr
+    (16) expr -> expr . EQ expr
+
+    SEMICOLON       reduce using rule 13 (expr -> expr DIV expr .)
+    PLUS            reduce using rule 13 (expr -> expr DIV expr .)
+    MINUS           reduce using rule 13 (expr -> expr DIV expr .)
+    MULT            reduce using rule 13 (expr -> expr DIV expr .)
+    DIV             reduce using rule 13 (expr -> expr DIV expr .)
+    RPAREN          reduce using rule 13 (expr -> expr DIV expr .)
+    LT              shift and go to state 31
+    GT              shift and go to state 32
+    EQ              shift and go to state 33
+
+  ! LT              [ reduce using rule 13 (expr -> expr DIV expr .) ]
+  ! GT              [ reduce using rule 13 (expr -> expr DIV expr .) ]
+  ! EQ              [ reduce using rule 13 (expr -> expr DIV expr .) ]
+  ! PLUS            [ shift and go to state 27 ]
+  ! MINUS           [ shift and go to state 28 ]
+  ! MULT            [ shift and go to state 29 ]
+  ! DIV             [ shift and go to state 30 ]
+
+
+state 44
+
+    (14) expr -> expr LT expr .
+    (10) expr -> expr . PLUS expr
+    (11) expr -> expr . MINUS expr
+    (12) expr -> expr . MULT expr
+    (13) expr -> expr . DIV expr
+    (14) expr -> expr . LT expr
+    (15) expr -> expr . GT expr
+    (16) expr -> expr . EQ expr
+
+    SEMICOLON       reduce using rule 14 (expr -> expr LT expr .)
+    PLUS            reduce using rule 14 (expr -> expr LT expr .)
+    MINUS           reduce using rule 14 (expr -> expr LT expr .)
+    MULT            reduce using rule 14 (expr -> expr LT expr .)
+    DIV             reduce using rule 14 (expr -> expr LT expr .)
+    LT              reduce using rule 14 (expr -> expr LT expr .)
+    GT              reduce using rule 14 (expr -> expr LT expr .)
+    EQ              reduce using rule 14 (expr -> expr LT expr .)
+    RPAREN          reduce using rule 14 (expr -> expr LT expr .)
+
+  ! PLUS            [ shift and go to state 27 ]
+  ! MINUS           [ shift and go to state 28 ]
+  ! MULT            [ shift and go to state 29 ]
+  ! DIV             [ shift and go to state 30 ]
+  ! LT              [ shift and go to state 31 ]
+  ! GT              [ shift and go to state 32 ]
+  ! EQ              [ shift and go to state 33 ]
+
+
+state 45
+
+    (15) expr -> expr GT expr .
+    (10) expr -> expr . PLUS expr
+    (11) expr -> expr . MINUS expr
+    (12) expr -> expr . MULT expr
+    (13) expr -> expr . DIV expr
+    (14) expr -> expr . LT expr
+    (15) expr -> expr . GT expr
+    (16) expr -> expr . EQ expr
+
+    SEMICOLON       reduce using rule 15 (expr -> expr GT expr .)
+    PLUS            reduce using rule 15 (expr -> expr GT expr .)
+    MINUS           reduce using rule 15 (expr -> expr GT expr .)
+    MULT            reduce using rule 15 (expr -> expr GT expr .)
+    DIV             reduce using rule 15 (expr -> expr GT expr .)
+    LT              reduce using rule 15 (expr -> expr GT expr .)
+    GT              reduce using rule 15 (expr -> expr GT expr .)
+    EQ              reduce using rule 15 (expr -> expr GT expr .)
+    RPAREN          reduce using rule 15 (expr -> expr GT expr .)
+
+  ! PLUS            [ shift and go to state 27 ]
+  ! MINUS           [ shift and go to state 28 ]
+  ! MULT            [ shift and go to state 29 ]
+  ! DIV             [ shift and go to state 30 ]
+  ! LT              [ shift and go to state 31 ]
+  ! GT              [ shift and go to state 32 ]
+  ! EQ              [ shift and go to state 33 ]
+
+
+state 46
+
+    (16) expr -> expr EQ expr .
+    (10) expr -> expr . PLUS expr
+    (11) expr -> expr . MINUS expr
+    (12) expr -> expr . MULT expr
+    (13) expr -> expr . DIV expr
+    (14) expr -> expr . LT expr
+    (15) expr -> expr . GT expr
+    (16) expr -> expr . EQ expr
+
+    SEMICOLON       reduce using rule 16 (expr -> expr EQ expr .)
+    PLUS            reduce using rule 16 (expr -> expr EQ expr .)
+    MINUS           reduce using rule 16 (expr -> expr EQ expr .)
+    MULT            reduce using rule 16 (expr -> expr EQ expr .)
+    DIV             reduce using rule 16 (expr -> expr EQ expr .)
+    LT              reduce using rule 16 (expr -> expr EQ expr .)
+    GT              reduce using rule 16 (expr -> expr EQ expr .)
+    EQ              reduce using rule 16 (expr -> expr EQ expr .)
+    RPAREN          reduce using rule 16 (expr -> expr EQ expr .)
+
+  ! PLUS            [ shift and go to state 27 ]
+  ! MINUS           [ shift and go to state 28 ]
+  ! MULT            [ shift and go to state 29 ]
+  ! DIV             [ shift and go to state 30 ]
+  ! LT              [ shift and go to state 31 ]
+  ! GT              [ shift and go to state 32 ]
+  ! EQ              [ shift and go to state 33 ]
+
+
+state 47
+
+    (7) stmt -> ID ASSIGN INPUT_BN LPAREN STRING . RPAREN SEMICOLON
+
+    RPAREN          shift and go to state 53
+
+
+state 48
+
+    (17) expr -> LPAREN expr RPAREN .
+
+    SEMICOLON       reduce using rule 17 (expr -> LPAREN expr RPAREN .)
+    PLUS            reduce using rule 17 (expr -> LPAREN expr RPAREN .)
+    MINUS           reduce using rule 17 (expr -> LPAREN expr RPAREN .)
+    MULT            reduce using rule 17 (expr -> LPAREN expr RPAREN .)
+    DIV             reduce using rule 17 (expr -> LPAREN expr RPAREN .)
+    LT              reduce using rule 17 (expr -> LPAREN expr RPAREN .)
+    GT              reduce using rule 17 (expr -> LPAREN expr RPAREN .)
+    EQ              reduce using rule 17 (expr -> LPAREN expr RPAREN .)
+    RPAREN          reduce using rule 17 (expr -> LPAREN expr RPAREN .)
+
+
+state 49
+
+    (5) stmt -> PRINT_BN LPAREN expr RPAREN SEMICOLON .
+
+    ID              reduce using rule 5 (stmt -> PRINT_BN LPAREN expr RPAREN SEMICOLON .)
+    PRINT_BN        reduce using rule 5 (stmt -> PRINT_BN LPAREN expr RPAREN SEMICOLON .)
+    RETURN_BN       reduce using rule 5 (stmt -> PRINT_BN LPAREN expr RPAREN SEMICOLON .)
+    IF_BN           reduce using rule 5 (stmt -> PRINT_BN LPAREN expr RPAREN SEMICOLON .)
+    WHILE_BN        reduce using rule 5 (stmt -> PRINT_BN LPAREN expr RPAREN SEMICOLON .)
+    $end            reduce using rule 5 (stmt -> PRINT_BN LPAREN expr RPAREN SEMICOLON .)
+    RBRACE          reduce using rule 5 (stmt -> PRINT_BN LPAREN expr RPAREN SEMICOLON .)
+
+
+state 50
+
+    (6) stmt -> RETURN_BN LPAREN expr RPAREN SEMICOLON .
+
+    ID              reduce using rule 6 (stmt -> RETURN_BN LPAREN expr RPAREN SEMICOLON .)
+    PRINT_BN        reduce using rule 6 (stmt -> RETURN_BN LPAREN expr RPAREN SEMICOLON .)
+    RETURN_BN       reduce using rule 6 (stmt -> RETURN_BN LPAREN expr RPAREN SEMICOLON .)
+    IF_BN           reduce using rule 6 (stmt -> RETURN_BN LPAREN expr RPAREN SEMICOLON .)
+    WHILE_BN        reduce using rule 6 (stmt -> RETURN_BN LPAREN expr RPAREN SEMICOLON .)
+    $end            reduce using rule 6 (stmt -> RETURN_BN LPAREN expr RPAREN SEMICOLON .)
+    RBRACE          reduce using rule 6 (stmt -> RETURN_BN LPAREN expr RPAREN SEMICOLON .)
+
+
+state 51
+
+    (8) stmt -> IF_BN LPAREN expr RPAREN LBRACE . stmt_list RBRACE ELSE_BN LBRACE stmt_list RBRACE
+    (2) stmt_list -> . stmt_list stmt
+    (3) stmt_list -> . stmt
+    (4) stmt -> . ID ASSIGN expr SEMICOLON
+    (5) stmt -> . PRINT_BN LPAREN expr RPAREN SEMICOLON
+    (6) stmt -> . RETURN_BN LPAREN expr RPAREN SEMICOLON
+    (7) stmt -> . ID ASSIGN INPUT_BN LPAREN STRING RPAREN SEMICOLON
+    (8) stmt -> . IF_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE_BN LBRACE stmt_list RBRACE
+    (9) stmt -> . WHILE_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE
+
+    ID              shift and go to state 4
+    PRINT_BN        shift and go to state 5
+    RETURN_BN       shift and go to state 6
+    IF_BN           shift and go to state 7
+    WHILE_BN        shift and go to state 8
+
+    stmt_list                      shift and go to state 54
+    stmt                           shift and go to state 3
+
+state 52
+
+    (9) stmt -> WHILE_BN LPAREN expr RPAREN LBRACE . stmt_list RBRACE
+    (2) stmt_list -> . stmt_list stmt
+    (3) stmt_list -> . stmt
+    (4) stmt -> . ID ASSIGN expr SEMICOLON
+    (5) stmt -> . PRINT_BN LPAREN expr RPAREN SEMICOLON
+    (6) stmt -> . RETURN_BN LPAREN expr RPAREN SEMICOLON
+    (7) stmt -> . ID ASSIGN INPUT_BN LPAREN STRING RPAREN SEMICOLON
+    (8) stmt -> . IF_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE_BN LBRACE stmt_list RBRACE
+    (9) stmt -> . WHILE_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE
+
+    ID              shift and go to state 4
+    PRINT_BN        shift and go to state 5
+    RETURN_BN       shift and go to state 6
+    IF_BN           shift and go to state 7
+    WHILE_BN        shift and go to state 8
+
+    stmt_list                      shift and go to state 55
+    stmt                           shift and go to state 3
+
+state 53
+
+    (7) stmt -> ID ASSIGN INPUT_BN LPAREN STRING RPAREN . SEMICOLON
+
+    SEMICOLON       shift and go to state 56
+
+
+state 54
+
+    (8) stmt -> IF_BN LPAREN expr RPAREN LBRACE stmt_list . RBRACE ELSE_BN LBRACE stmt_list RBRACE
+    (2) stmt_list -> stmt_list . stmt
+    (4) stmt -> . ID ASSIGN expr SEMICOLON
+    (5) stmt -> . PRINT_BN LPAREN expr RPAREN SEMICOLON
+    (6) stmt -> . RETURN_BN LPAREN expr RPAREN SEMICOLON
+    (7) stmt -> . ID ASSIGN INPUT_BN LPAREN STRING RPAREN SEMICOLON
+    (8) stmt -> . IF_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE_BN LBRACE stmt_list RBRACE
+    (9) stmt -> . WHILE_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE
+
+    RBRACE          shift and go to state 57
+    ID              shift and go to state 4
+    PRINT_BN        shift and go to state 5
+    RETURN_BN       shift and go to state 6
+    IF_BN           shift and go to state 7
+    WHILE_BN        shift and go to state 8
+
+    stmt                           shift and go to state 9
+
+state 55
+
+    (9) stmt -> WHILE_BN LPAREN expr RPAREN LBRACE stmt_list . RBRACE
+    (2) stmt_list -> stmt_list . stmt
+    (4) stmt -> . ID ASSIGN expr SEMICOLON
+    (5) stmt -> . PRINT_BN LPAREN expr RPAREN SEMICOLON
+    (6) stmt -> . RETURN_BN LPAREN expr RPAREN SEMICOLON
+    (7) stmt -> . ID ASSIGN INPUT_BN LPAREN STRING RPAREN SEMICOLON
+    (8) stmt -> . IF_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE_BN LBRACE stmt_list RBRACE
+    (9) stmt -> . WHILE_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE
+
+    RBRACE          shift and go to state 58
+    ID              shift and go to state 4
+    PRINT_BN        shift and go to state 5
+    RETURN_BN       shift and go to state 6
+    IF_BN           shift and go to state 7
+    WHILE_BN        shift and go to state 8
+
+    stmt                           shift and go to state 9
+
+state 56
+
+    (7) stmt -> ID ASSIGN INPUT_BN LPAREN STRING RPAREN SEMICOLON .
+
+    ID              reduce using rule 7 (stmt -> ID ASSIGN INPUT_BN LPAREN STRING RPAREN SEMICOLON .)
+    PRINT_BN        reduce using rule 7 (stmt -> ID ASSIGN INPUT_BN LPAREN STRING RPAREN SEMICOLON .)
+    RETURN_BN       reduce using rule 7 (stmt -> ID ASSIGN INPUT_BN LPAREN STRING RPAREN SEMICOLON .)
+    IF_BN           reduce using rule 7 (stmt -> ID ASSIGN INPUT_BN LPAREN STRING RPAREN SEMICOLON .)
+    WHILE_BN        reduce using rule 7 (stmt -> ID ASSIGN INPUT_BN LPAREN STRING RPAREN SEMICOLON .)
+    $end            reduce using rule 7 (stmt -> ID ASSIGN INPUT_BN LPAREN STRING RPAREN SEMICOLON .)
+    RBRACE          reduce using rule 7 (stmt -> ID ASSIGN INPUT_BN LPAREN STRING RPAREN SEMICOLON .)
+
+
+state 57
+
+    (8) stmt -> IF_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE . ELSE_BN LBRACE stmt_list RBRACE
+
+    ELSE_BN         shift and go to state 59
+
+
+state 58
+
+    (9) stmt -> WHILE_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE .
+
+    ID              reduce using rule 9 (stmt -> WHILE_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    PRINT_BN        reduce using rule 9 (stmt -> WHILE_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    RETURN_BN       reduce using rule 9 (stmt -> WHILE_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    IF_BN           reduce using rule 9 (stmt -> WHILE_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    WHILE_BN        reduce using rule 9 (stmt -> WHILE_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    $end            reduce using rule 9 (stmt -> WHILE_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    RBRACE          reduce using rule 9 (stmt -> WHILE_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+
+
+state 59
+
+    (8) stmt -> IF_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE_BN . LBRACE stmt_list RBRACE
+
+    LBRACE          shift and go to state 60
+
+
+state 60
+
+    (8) stmt -> IF_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE_BN LBRACE . stmt_list RBRACE
+    (2) stmt_list -> . stmt_list stmt
+    (3) stmt_list -> . stmt
+    (4) stmt -> . ID ASSIGN expr SEMICOLON
+    (5) stmt -> . PRINT_BN LPAREN expr RPAREN SEMICOLON
+    (6) stmt -> . RETURN_BN LPAREN expr RPAREN SEMICOLON
+    (7) stmt -> . ID ASSIGN INPUT_BN LPAREN STRING RPAREN SEMICOLON
+    (8) stmt -> . IF_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE_BN LBRACE stmt_list RBRACE
+    (9) stmt -> . WHILE_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE
+
+    ID              shift and go to state 4
+    PRINT_BN        shift and go to state 5
+    RETURN_BN       shift and go to state 6
+    IF_BN           shift and go to state 7
+    WHILE_BN        shift and go to state 8
+
+    stmt_list                      shift and go to state 61
+    stmt                           shift and go to state 3
+
+state 61
+
+    (8) stmt -> IF_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE_BN LBRACE stmt_list . RBRACE
+    (2) stmt_list -> stmt_list . stmt
+    (4) stmt -> . ID ASSIGN expr SEMICOLON
+    (5) stmt -> . PRINT_BN LPAREN expr RPAREN SEMICOLON
+    (6) stmt -> . RETURN_BN LPAREN expr RPAREN SEMICOLON
+    (7) stmt -> . ID ASSIGN INPUT_BN LPAREN STRING RPAREN SEMICOLON
+    (8) stmt -> . IF_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE_BN LBRACE stmt_list RBRACE
+    (9) stmt -> . WHILE_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE
+
+    RBRACE          shift and go to state 62
+    ID              shift and go to state 4
+    PRINT_BN        shift and go to state 5
+    RETURN_BN       shift and go to state 6
+    IF_BN           shift and go to state 7
+    WHILE_BN        shift and go to state 8
+
+    stmt                           shift and go to state 9
+
+state 62
+
+    (8) stmt -> IF_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE_BN LBRACE stmt_list RBRACE .
+
+    ID              reduce using rule 8 (stmt -> IF_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE_BN LBRACE stmt_list RBRACE .)
+    PRINT_BN        reduce using rule 8 (stmt -> IF_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE_BN LBRACE stmt_list RBRACE .)
+    RETURN_BN       reduce using rule 8 (stmt -> IF_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE_BN LBRACE stmt_list RBRACE .)
+    IF_BN           reduce using rule 8 (stmt -> IF_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE_BN LBRACE stmt_list RBRACE .)
+    WHILE_BN        reduce using rule 8 (stmt -> IF_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE_BN LBRACE stmt_list RBRACE .)
+    $end            reduce using rule 8 (stmt -> IF_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE_BN LBRACE stmt_list RBRACE .)
+    RBRACE          reduce using rule 8 (stmt -> IF_BN LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE_BN LBRACE stmt_list RBRACE .)
+
